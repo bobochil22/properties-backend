@@ -1,0 +1,5 @@
+*
+!public/
+!.gitignore
+!seeder_data/
+!seeder_data/*
