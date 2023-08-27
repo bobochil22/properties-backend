@@ -47,7 +47,7 @@ class Property extends Model
         }
 
         $price_range = $filters['price_range'] ?? '';
-        $price_range = explode(',', $price_range);
+        $price_range = $price_range ? explode(',', $price_range) : [];
         $price_from = $price_range[0] ?? null;
         $price_to = $price_range[1] ?? null;
 
