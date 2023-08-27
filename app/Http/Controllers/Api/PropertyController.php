@@ -16,7 +16,7 @@ class PropertyController extends Controller
      */
     public function index(Request $request)
     {
-        $properties = PropertyResource::collection(Property::filter($request->all())->paginate());
+        $properties = PropertyResource::collection(Property::filter($request->all())->paginate())->response()->getData(true);
 
         return response()->json($properties, 200);
     }
