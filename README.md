@@ -1,3 +1,9 @@
+## Installation
+```sh
+git clone https://github.com/bobochil22/properties-backend.git
+cd properties-backend
+```
+
 ## Build and run
 Clone the repository and run ```./run.sh``` with required option to build and run the backend. The backend api will be available at ```http://localhost:8181/api```.
 
