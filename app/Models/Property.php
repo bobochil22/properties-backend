@@ -25,8 +25,8 @@ class Property extends Model
         if ($name) {
             $soundex = SoundexHelper::getSound($name);
 
-            $query->selectRaw("property.*, word_similarity('$soundex', soundex) as sml")
-                ->whereRaw("'$soundex' <% soundex")
+            $query->selectRaw("property.*, word_similarity('$name', name) as sml")
+                ->whereRaw("'$name' <% name")
                 ->orderByDesc('sml');
         }
 
@@ -61,18 +61,5 @@ class Property extends Model
 
         return $query;
 
-    }
-
-    public static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($model) {
-            $model->soundex = SoundexHelper::getSound($model->name);
-        });
-
-        static::updating(function ($model) {
-            $model->soundex = SoundexHelper::getSound($model->name);
-        });
     }
 }
